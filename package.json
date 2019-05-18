@@ -7,8 +7,9 @@
     "test": "mocha --recursive test"
   },
   "author": "Mateus R R Spadacio",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/Mateusspadacio/inject-values-in-json",
+  "keywords": ["json", "inject", "replace"],
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
