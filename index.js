@@ -1,3 +1,4 @@
+const hasKey = require('./src/hasKey');
 const jsonIterator = require('./src/jsonIterator');
 const replace = require('./src/replace');
 
@@ -19,15 +20,24 @@ function parse(json) {
  * @description It replaces all ocurrences of values in json 
  */
 function injectByKeyValuePairs(json, keyValuePairs) {
+    if (typeof keyValuePairs !== 'object' || Array.isArray(keyValuePairs)) {
+        throw new Error('keyValuePairs is not a object');
+    }
+
     let jsonAux = parse(json);
     if (!jsonAux) throw new Error('json is not a valid json or object');
-    let keyValuePairsAux = parse(keyValuePairs);
-    if (!keyValuePairsAux) throw new Error('keyValuePairs is not a valid json or object');
 
-    const keys = Object.keys(keyValuePairsAux);
+    const keys = Object.keys(keyValuePairs);
     jsonAux = jsonIterator(jsonAux, function (key, value) {
         for (let i = 0; i < keys.length; i += 1) {
-            value = replace(value, { key: keys[i], value: keyValuePairsAux[keys[i]] })
+
+            let nvalue = keyValuePairs[keys[i]];
+
+            if (typeof keyValuePairs[keys[i]] === 'function' && hasKey(value, keys[i])) {
+                nvalue = keyValuePairs[keys[i]]();
+            }
+
+            value = replace(value, { key: keys[i], value: nvalue });
         }
         return value;
     });
