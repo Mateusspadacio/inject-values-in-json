@@ -8,6 +8,7 @@
   },
   "author": "Mateus R R Spadacio",
   "license": "ISC",
+  "repository": "https://github.com/Mateusspadacio/inject-values-in-json",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
