@@ -1,6 +1,6 @@
 {
   "name": "inject-values-in-json",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,11 @@
   "author": "Mateus R R Spadacio",
   "license": "MIT",
   "repository": "https://github.com/Mateusspadacio/inject-values-in-json",
-  "keywords": ["json", "inject", "replace"],
+  "keywords": [
+    "json",
+    "inject",
+    "replace"
+  ],
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
